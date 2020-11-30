@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run conn.py
+web: sh setup.sh && streamlit run src/conn.py
