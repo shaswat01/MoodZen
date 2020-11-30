@@ -16,19 +16,19 @@ session_state1 = SessionState.get(checkboxed = False)
 session_state2 = SessionState.get(checkboxed = False)
 
 
-SVR_model = joblib.load("models/SVR_model1.pkl")
+SVR_model = joblib.load("../models/SVR_model1.pkl")
 
 song_df = pd.read_csv("data/song_df.csv")
 
 song_features = pd.read_csv("data/song_features.csv")
 
-scaler = joblib.load("models/scaler2.pkl")
+scaler = joblib.load("../models/scaler2.pkl")
 
 
 st.title("MoodZen")
 
 
-st.sidebar.image("images/astromusic.jpg",width=250)
+st.sidebar.image("../images/astromusic.jpg",width=250)
 
 song_name = st.sidebar.text_input("Enter Song Name")
 artist_name = st.sidebar.text_input("Enter Arists Name (Optional)", '')
