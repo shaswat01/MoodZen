@@ -48,7 +48,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         col1.write("Track : ")
 
         col1.markdown("<a href="+str(song_url)+" target='_blank' style='text-align: center;'>"+ str(track_name) + ' by ' +str(track_artist)+"</a>", unsafe_allow_html=True)
-        col2.audio("src/data/temp_music/"+song_id+".wav")
+        col2.audio("src/data/"+song_id+".wav")
 
 
         if song_id in song_df['id'].tolist():
@@ -56,7 +56,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         
         else: 
             
-            features = extract_feature('src/data/temp_music/')
+            features = extract_feature('src/data/')
             song_features.append(features)
             features.drop(columns = ['song_name'], inplace = True)
 
@@ -236,7 +236,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         song_df.drop(columns = ['similarity_score'], inplace = True)
         song_df.to_csv('src/data/song_df.csv', index = False)
         song_features.to_csv('src/data/song_features.csv', index = False)
-        files = glob.glob('src/data/temp_music/*.wav')
+        files = glob.glob('src/data/*.wav')
         for f in files:
             os.remove(f)
 
@@ -249,7 +249,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
             st.write("Song Cannot Be Downloaded Using Spotify API")
 
     refresh = 'https://share.streamlit.io/shaswat01/moodzen/main/src/conn.py'
-    if st.button("Try Another Song!"):
+    if st.button("Try Another Song"):
         webbrowser.open(refresh)
 
 
