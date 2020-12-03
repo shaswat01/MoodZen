@@ -1,5 +1,7 @@
 # MoodZen
 
+You can play with this app [here](https://share.streamlit.io/shaswat01/moodzen/main/src/conn.py). 
+
 ## About This App
 Welcome to MoodZen! This project is a music recommendation engine that takes into account the emotions that a particular song evokes. Emotions associated with a song are an abstract concept and can be subjective, that's why our system allows you to update the representation of emotion associated with each song that our model predicted. Over time, as more people use this web app, the model performance will improve and give emotion predictions that are closer to ground truth (or at least what majority of people believe the emotional ratings of songs to be). 
 
