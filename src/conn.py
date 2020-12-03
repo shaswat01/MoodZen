@@ -56,7 +56,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         
         else: 
             
-            features = extract_feature('src/data/')
+            features = extract_feature(glob.glob('src/data/*.wav'))
             song_features.append(features)
             features.drop(columns = ['song_name'], inplace = True)
 
