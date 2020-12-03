@@ -136,7 +136,10 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
             #         ratings[2] =  (ratings[2] + float(angry_val))/2.0
             #         ratings[3] =  (ratings[3] + float(angry_val))/2.0
 
-            
+            song_df.loc[song_df['id'] == song_id, 'Anger'] = ratings[0]
+            song_df.loc[song_df['id'] == song_id, 'Sad'] = ratings[1]
+            song_df.loc[song_df['id'] == song_id, 'Happy'] = ratings[2]
+            song_df.loc[song_df['id'] == song_id, 'Tender'] = ratings[3]
             song_df['similarity_score'] = song_df[['Anger', 'Sad', 'Happy', 'Tender']].apply(lambda x: cos_sim(x),axis=1)
             song_df1 = song_df.copy()
             song_df1 = song_df[song_df1["id"]!=song_id]
