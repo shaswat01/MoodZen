@@ -92,6 +92,11 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         tender_col.markdown("<h1 style='text-align: center;'> &#128524 </h1>", unsafe_allow_html=True)
         tender_col.markdown("<h3 style='text-align: center;'>"+str(np.round(ratings[3],2))+"</h3>", unsafe_allow_html=True)
 
+        update_freq = song_df[song_df['id']==song_id]['update_frequency'].values[0]
+
+        st.write(" ")
+
+        st.write('This song has been updated '+ str(update_freq)+' time(s)! :)')
 
         st.write(" ")
         check = st.radio("Are these emotional ratings what you expected them to be?", ('Yes', 'No'))
