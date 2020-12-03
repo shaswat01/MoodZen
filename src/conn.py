@@ -236,7 +236,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         song_df.drop(columns = ['similarity_score'], inplace = True)
         song_df.to_csv('src/data/song_df.csv', index = False)
         song_features.to_csv('src/data/song_features.csv', index = False)
-        files = glob.glob('src/data/temp_music/*')
+        files = glob.glob('src/data/temp_music/*.wav')
         for f in files:
             os.remove(f)
 
