@@ -5,7 +5,7 @@ client_secret = "4980e48cec984e9aad21b60205c3f01b"
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-def search_new_song(song_name, artist_name = '', DIR = 'data/temp/'):
+def search_new_song(song_name, artist_name = '', DIR = 'src/data/temp_music/'):
 
     search_result = spotify.base_search(song_name + ' ' + artist_name, search_type="track")
     

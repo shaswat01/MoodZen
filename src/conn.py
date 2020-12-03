@@ -16,19 +16,21 @@ session_state1 = SessionState.get(checkboxed = False)
 session_state2 = SessionState.get(checkboxed = False)
 
 
-SVR_model = joblib.load("../models/SVR_model1.pkl")
+os.chdir(os.getcwd())
 
-song_df = pd.read_csv("data/song_df.csv")
+song_df = pd.read_csv("src/data/song_df.csv")
 
-song_features = pd.read_csv("data/song_features.csv")
+song_features = pd.read_csv("src/data/song_features.csv")
 
-scaler = joblib.load("../models/scaler2.pkl")
+SVR_model = joblib.load("models/SVR_model1.pkl")
+
+scaler = joblib.load("models/scaler2.pkl")
 
 
 st.title("MoodZen")
 
 
-st.sidebar.image("../images/astromusic.jpg",width=250)
+st.sidebar.image("images/astromusic.jpg",width=250)
 
 song_name = st.sidebar.text_input("Enter Song Name")
 artist_name = st.sidebar.text_input("Enter Arists Name (Optional)", '')
@@ -45,7 +47,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         col1.write("Track : ")
 
         col1.markdown("<a href="+str(song_url)+" target='_blank' style='text-align: center;'>"+ str(track_name) + ' by ' +str(track_artist)+"</a>", unsafe_allow_html=True)
-        col2.audio("data/temp/"+song_id+".wav")
+        col2.audio("src/data/temp_music/"+song_id+".wav")
 
 
         if song_id in song_df['id'].tolist():
@@ -53,7 +55,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
         
         else: 
             
-            features = extract_feature('data/temp/')
+            features = extract_feature('src/data/temp_music/')
             song_features.append(features)
             features.drop(columns = ['song_name'], inplace = True)
 
@@ -65,7 +67,7 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
             
             song_df.loc[len(song_df)] = [track_name, track_artist, 1, ratings[0], ratings[1], ratings[2], ratings[3], energy, valence, song_url, song_id, 1]
             
-            song_df.to_csv('data/song_df.csv', index = False)
+            song_df.to_csv('src/data/song_df.csv', index = False)
 
         radar_df = pd.DataFrame(dict(
             r= ratings,
@@ -231,9 +233,9 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
                 st.write('')
             
         song_df.drop(columns = ['similarity_score'], inplace = True)
-        song_df.to_csv('data/song_df.csv', index = False)
-        song_features.to_csv('data/song_features.csv', index = False)
-        files = glob.glob('data/temp/*')
+        song_df.to_csv('src/data/song_df.csv', index = False)
+        song_features.to_csv('src/data/song_features.csv', index = False)
+        files = glob.glob('src/data/temp_music/*')
         for f in files:
             os.remove(f)
 
