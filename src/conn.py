@@ -5,6 +5,7 @@ import numpy as np
 import os
 import glob
 import plotly.express as px
+import webbrowser
 from sklearn.preprocessing import StandardScaler
 
 from search_song import *
@@ -30,7 +31,7 @@ scaler = joblib.load("models/scaler2.pkl")
 st.title("MoodZen")
 
 
-st.sidebar.image("images/astromusic.jpg",width=250)
+st.sidebar.image("images/astro.png",width=250)
 
 song_name = st.sidebar.text_input("Enter Song Name")
 artist_name = st.sidebar.text_input("Enter Arists Name (Optional)", '')
@@ -246,6 +247,11 @@ if st.sidebar.button("Get Recommendations") or session_state.checkboxed:
             pass
         else:
             st.write("Song Cannot Be Downloaded Using Spotify API")
+
+    refresh = 'https://share.streamlit.io/shaswat01/moodzen/main/src/conn.py'
+    if st.button("Try Another Song!"):
+        webbrowser.open(refresh)
+
 
 
 else:
