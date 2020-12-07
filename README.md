@@ -1,6 +1,5 @@
 # MoodZen
 
-You can play with this app [here](https://share.streamlit.io/shaswat01/moodzen/main/src/conn.py). 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/shaswat01/moodzen/main/src/conn.py)
 
 ## About This App
