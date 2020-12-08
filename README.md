@@ -40,29 +40,22 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── README.md         
     ├── src
     │   ├── data       
     │   ├── conn.py     
     │   ├── feature_extract_helper.py 
     │   ├── search_song.py   
     │   └── spotify_api.py
-    │
     ├── models
-    │   ├── SVR_model1.pkl       
-    |   ├── ridge_model.pkl    
+    │   ├── SVR_model1.pkl  
+    │   ├── ridge_model.pkl   
     │   └── scaler2.pkl
-    │
     ├── notebooks          
-    │
     ├── images        
-    │
     ├── Aptfile
-    │
     ├── requirements.txt   
-    │
     ├── setup.sh                     
-    │
     └── packages.txt 
 
 
